@@ -1,0 +1,71 @@
+:root{
+	--wid: 21;
+	--hei: 17;
+	--headdirection: 0% 0% 0% 0%;
+	--skin0: url("resources/default/skin0.png");
+	--skin1: url("resources/default/skin1.png");
+	--skin2: url("resources/default/skin2.png");
+	--bgground: url("resources/default/background.png");
+	--fruit: url("resources/default/fruit.png");
+}
+#snake{
+	position: relative;
+	width: calc(var(--wid) * 50px);
+	height: calc(var(--hei) * 50px);
+	background-color: green;
+	background-image: var(--bgground);
+	background-size: 50px 50px;
+	background-repeat: repeat;
+	margin: 0 auto;
+}
+.a, #frucht{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+}
+.ba{
+	background-color: #F699CD;
+	background-image: var(--skin1);
+	background-size: 50px 50px;
+	background-repeat: repeat;
+}
+.bb{
+	background-color: #FC94AF;
+	background-image: var(--skin2);
+	background-size: 50px 50px;
+	background-repeat: repeat;
+}
+.c{
+	background-color: #F26B8A;
+	border-radius: var(--headdirection);
+	background-image: var(--skin0);
+	background-size: 50px 50px;
+	background-repeat: repeat;
+}
+#frucht{
+	background-image: var(--fruit);
+	background-size: 50px 50px;
+	background-repeat: repeat;
+}
+#snejklus{
+	position: absolute;
+	top: calc(50% - 5vh);
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 5vh;
+	text-shadow: 2px 2px 2px white;
+	text-shadow: -2px 2px 2px white;
+	text-shadow: 2px -2px 2px white;
+	text-shadow: -2px -2px 2px white;
+}
+#divulus{
+	position: absolute;
+	top: calc(50% + 5vh);
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 1;
+}
+img{
+	width: 50px;
+	height: 50px;
+}
