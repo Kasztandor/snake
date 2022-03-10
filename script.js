@@ -94,7 +94,7 @@ function game(){ var interwalel = setInterval(() => {
 	}
 	if ((planke[planke.length-1][0]>size[0] || planke[planke.length-1][1]>size[1] || planke[planke.length-1][0]<0 || planke[planke.length-1][1]<0) || lose){
 		/* W razie przegranej */
-		document.querySelector("#snake").innerHTML += '<span id="snejklus">Przegrałeś!!!</span><br><div id="divulus"><button onclick="start()">Jeszcze raz</button> <button onclick="startPage()">Zmień ustawienia</button></div>';
+		document.querySelector("#snake").innerHTML += '<span id="snejklus">Przegrałeś!!!</span><div id="wynikulus">Wynik: '+(planke.length-4)+'</div><div id="divulus"><button onclick="start()">Jeszcze raz</button> <button onclick="startPage()">Zmień ustawienia</button></div>';
 		clearInterval(interwalel);
 		khawm = "";
 	}

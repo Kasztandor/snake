@@ -7,44 +7,45 @@
 	--skin2: url("resources/default/skin2.png");
 	--bgground: url("resources/default/background.png");
 	--fruit: url("resources/default/fruit.png");
+	--box-size: 50px;
 }
 #snake{
 	position: relative;
-	width: calc(var(--wid) * 50px);
-	height: calc(var(--hei) * 50px);
+	width: calc(var(--wid) * var(--box-size));
+	height: calc(var(--hei) * var(--box-size));
 	background-color: green;
 	background-image: var(--bgground);
-	background-size: 50px 50px;
+	background-size: var(--box-size) var(--box-size);
 	background-repeat: repeat;
 	margin: 0 auto;
 }
 .a, #frucht{
 	position: absolute;
-	width: 50px;
-	height: 50px;
+	width: var(--box-size);
+	height: var(--box-size);
 }
 .ba{
 	background-color: #F699CD;
 	background-image: var(--skin1);
-	background-size: 50px 50px;
+	background-size: var(--box-size) var(--box-size);
 	background-repeat: repeat;
 }
 .bb{
 	background-color: #FC94AF;
 	background-image: var(--skin2);
-	background-size: 50px 50px;
+	background-size: var(--box-size) var(--box-size);
 	background-repeat: repeat;
 }
 .c{
 	background-color: #F26B8A;
 	border-radius: var(--headdirection);
 	background-image: var(--skin0);
-	background-size: 50px 50px;
+	background-size: var(--box-size) var(--box-size);
 	background-repeat: repeat;
 }
 #frucht{
 	background-image: var(--fruit);
-	background-size: 50px 50px;
+	background-size: var(--box-size) var(--box-size);
 	background-repeat: repeat;
 }
 #snejklus{
@@ -58,6 +59,16 @@
 	text-shadow: 2px -2px 2px white;
 	text-shadow: -2px -2px 2px white;
 }
+#wynikulus{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-shadow: 2px 2px 2px white;
+	text-shadow: -2px 2px 2px white;
+	text-shadow: 2px -2px 2px white;
+	text-shadow: -2px -2px 2px white;
+}
 #divulus{
 	position: absolute;
 	top: calc(50% + 5vh);
@@ -66,6 +77,6 @@
 	z-index: 1;
 }
 img{
-	width: 50px;
-	height: 50px;
+	width: var(--box-size);
+	height: var(--box-size);
 }
