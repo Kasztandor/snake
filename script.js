@@ -13,7 +13,7 @@ var speedBar = 2;
 var speed = 200;
 var apple = [0,0];
 var texturesBar = 0;
-var textures = {0:"default",1:"holy-shit",2:"ukraina",3:"duda"}
+var textures = {0:"default",1:"holy-shit",2:"ukraina",3:"duda",4:"arnold"}
 var spit = {0:"bardzo wolna",1:"wolna",2:"normalna",3:"szybka",4:"bardzo szybka"}
 
 function startPage(){
