@@ -6,12 +6,12 @@ var planke;
 var khawm = "";
 var direction = "";
 var lastLocation = "";
-var apple = [5,5];
+var apple = [0,0];
 var size;
-var textures = {0:"default",1:"holy-shit",2:"ukraina"}
+var textures = {0:"default",1:"holy-shit",2:"ukraina",3:"duda"}
 
 function startPage(){
-	document.getElementsByTagName("main")[0].innerHTML='Tekstury:<br><input id="textures" type="range" min="0" max="2" value="0"><br><span id="texturesDisplay">default</span><br><br><div id="texturesPresentation"><div id="texturesPresentation"><img src="resources/default/skin0.png"><img src="resources/default/skin1.png"><img src="resources/default/skin2.png"> <img src="resources/default/fruit.png"> <img src="resources/default/background.png"></div></div><br>Wysokość planszy:<input id="plankeHeight" type="range" min="1" max="8" value="4"><span id="plankeHeightDisplay">15</span><br>Szerokość planszy:<input id="plankeWidth" type="range" min="1" max="8" value="4"><span id="plankeWidthDisplay">11</span><br><br><button onclick=\'start((document.querySelector("#plankeHeight").value*2+4),(document.querySelector("#plankeWidth").value*2+6))\'>Rozpocznij!</button>';
+	document.getElementsByTagName("main")[0].innerHTML='Tekstury:<br><input id="textures" type="range" min="0" max="'+(Object.keys(textures).length-1)+'" value="0"><br><span id="texturesDisplay">default</span><br><br><div id="texturesPresentation"><div id="texturesPresentation"><img src="resources/default/skin0.png"><img src="resources/default/skin1.png"><img src="resources/default/skin2.png"> <img src="resources/default/fruit.png"> <img src="resources/default/background.png"></div></div><br>Wysokość planszy:<input id="plankeHeight" type="range" min="1" max="8" value="4"><span id="plankeHeightDisplay">15</span><br>Szerokość planszy:<input id="plankeWidth" type="range" min="1" max="8" value="4"><span id="plankeWidthDisplay">11</span><br>Szybkość:<input id="plankeSpeed" type="range" min="0" max="4" value="2"><span id="plankeSpeedDisplay">normalna</span><br><br><button onclick=\'start((document.querySelector("#plankeHeight").value*2+4),(document.querySelector("#plankeWidth").value*2+6))\'>Rozpocznij!</button>';
 	document.querySelector("#textures").oninput = function() {
 		var fldName = textures[this.value]
 		document.querySelector("#texturesDisplay").innerHTML = fldName+":";
