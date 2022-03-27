@@ -9,6 +9,10 @@
 	--fruit: url("resources/default/fruit.png");
 	--box-size: 50px;
 }
+body{
+	margin: 0;
+	padding: 0;
+}
 #snake{
 	position: relative;
 	width: calc(var(--wid) * var(--box-size));

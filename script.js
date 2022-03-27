@@ -1,5 +1,7 @@
 ﻿window.onload = () => {
-	startPage();
+	window.onresize = boxSize
+	boxSize()
+	startPage()
 }
 
 var interwalel;
@@ -8,37 +10,52 @@ var size;
 var khawm = "";
 var direction = "";
 var heightBar = 4;
+var realHeight = heightBar*2+7;
 var widthBar = 4;
+var realWidth = widthBar*2+5;
 var speedBar = 2;
 var speed = 200;
 var apple = [0,0];
 var texturesBar = 0;
 var textures = {0:"default",1:"holy-shit",2:"ukraina",3:"duda",4:"arnold"}
 var spit = {0:"bardzo wolna",1:"wolna",2:"normalna",3:"szybka",4:"bardzo szybka"}
+var bsize = 50
 
+function boxSize() {
+	//var bs1 = Math.floor(window.innerHeight / (heightBar*2+9) - 3)
+	//var bs2 = Math.floor(window.innerWidth / (widthBar*2+7) + 1)
+	//console.log(window.innerWidth+" "+bs2)
+	//bsize = bs1>bs2?bs1:bs2
+	//bsize = bs1
+	//document.documentElement.style.setProperty('--box-size', bsize+'px');
+}
 function startPage(){
 	console.log(texturesBar);
-	document.getElementsByTagName("main")[0].innerHTML='Tekstury:<br><input id="textures" type="range" min="0" max="'+(Object.keys(textures).length-1)+'" value="'+texturesBar+'"><br><span id="texturesDisplay">'+textures[texturesBar]+'</span><br><br><div id="texturesPresentation"><div id="texturesPresentation"><img src="resources/'+textures[texturesBar]+'/skin0.png"><img src="resources/'+textures[texturesBar]+'/skin1.png"><img src="resources/'+textures[texturesBar]+'/skin2.png"> <img src="resources/'+textures[texturesBar]+'/fruit.png"> <img src="resources/'+textures[texturesBar]+'/background.png"></div></div><br>Wysokość planszy:<input id="plankeHeight" type="range" min="1" max="8" value="'+heightBar+'"><span id="plankeHeightDisplay">15</span><br>Szerokość planszy:<input id="plankeWidth" type="range" min="1" max="8" value="'+widthBar+'"><span id="plankeWidthDisplay">11</span><br>Szybkość:<input id="plankeSpeed" type="range" min="0" max="4" value="'+speedBar+'"><span id="plankeSpeedDisplay">normalna</span><br><br><button onclick=\'start((document.querySelector("#plankeHeight").value*2+4),(document.querySelector("#plankeWidth").value*2+6))\'>Rozpocznij!</button>';
-	document.querySelector("#textures").oninput = function() {
+	document.getElementsByTagName("main")[0].innerHTML='<h1>Swobodny wenż</h1>Tekstury:<br><input id="textures" type="range" min="0" max="'+(Object.keys(textures).length-1)+'" value="'+texturesBar+'"><br><span id="texturesDisplay">'+textures[texturesBar]+'</span><br><br><div id="texturesPresentation"><div id="texturesPresentation"><img src="resources/'+textures[texturesBar]+'/skin0.png"><img src="resources/'+textures[texturesBar]+'/skin1.png"><img src="resources/'+textures[texturesBar]+'/skin2.png"> <img src="resources/'+textures[texturesBar]+'/fruit.png"> <img src="resources/'+textures[texturesBar]+'/background.png"></div></div><br>Wysokość planszy:<input id="plankeHeight" type="range" min="1" max="8" value="'+heightBar+'"><span id="plankeHeightDisplay">'+realHeight+'</span><br>Szerokość planszy:<input id="plankeWidth" type="range" min="1" max="8" value="'+widthBar+'"><span id="plankeWidthDisplay">'+realWidth+'</span><br>Szybkość:<input id="plankeSpeed" type="range" min="0" max="4" value="'+speedBar+'"><span id="plankeSpeedDisplay">normalna</span><br><br><button onclick=\'start(realHeight,realWidth)\'>Rozpocznij!</button>';
+	document.querySelector("#textures").oninput = function(){
 		texturesBar = this.value;
 		var fldName = textures[texturesBar];
 		document.querySelector("#texturesDisplay").innerHTML = fldName+":";
 		document.querySelector("#texturesPresentation").innerHTML = '<img src="resources/'+fldName+'/skin0.png"><img src="resources/'+fldName+'/skin1.png"><img src="resources/'+fldName+'/skin2.png">&emsp;<img src="resources/'+fldName+'/fruit.png">&emsp;<img src="resources/'+fldName+'/background.png">';
-		document.documentElement.style .setProperty('--skin0', 'url("resources/'+fldName+'/skin0.png")');
-		document.documentElement.style .setProperty('--skin1', 'url("resources/'+fldName+'/skin1.png")');
-		document.documentElement.style .setProperty('--skin2', 'url("resources/'+fldName+'/skin2.png")');
-		document.documentElement.style .setProperty('--bgground', 'url("resources/'+fldName+'/background.png")');
-		document.documentElement.style .setProperty('--fruit', 'url("resources/'+fldName+'/fruit.png")');
+		document.documentElement.style.setProperty('--skin0', 'url("resources/'+fldName+'/skin0.png")');
+		document.documentElement.style.setProperty('--skin1', 'url("resources/'+fldName+'/skin1.png")');
+		document.documentElement.style.setProperty('--skin2', 'url("resources/'+fldName+'/skin2.png")');
+		document.documentElement.style.setProperty('--bgground', 'url("resources/'+fldName+'/background.png")');
+		document.documentElement.style.setProperty('--fruit', 'url("resources/'+fldName+'/fruit.png")');
 	}
-	document.querySelector("#plankeHeight").oninput = function() {
+	document.querySelector("#plankeHeight").oninput = function(){
 		heightBar = this.value;
-		document.querySelector("#plankeHeightDisplay").innerHTML = heightBar*2+7;
+		realHeight = heightBar*2+9;
+		document.querySelector("#plankeHeightDisplay").innerHTML = realHeight;
+		boxSize()
 	}
-	document.querySelector("#plankeWidth").oninput = function() {
+	document.querySelector("#plankeWidth").oninput = function(){
 		widthBar = this.value;
-		document.querySelector("#plankeWidthDisplay").innerHTML = widthBar*2+5;
+		realWidth = widthBar*2+7;
+		document.querySelector("#plankeWidthDisplay").innerHTML = realWidth;
+		boxSize()
 	}
-	document.querySelector("#plankeSpeed").oninput = function() {
+	document.querySelector("#plankeSpeed").oninput = function(){
 		speedBar = this.value;
 		document.querySelector("#plankeSpeedDisplay").innerHTML = spit[speedBar];
 		if (this.value == 0){
@@ -144,12 +161,12 @@ function game(){
 			else{
 				var ins = "bb"
 			}
-			document.querySelector("#snake").innerHTML += '<div class="a '+ins+'" style="top:'+planke[i][0]*50+'px; left:'+planke[i][1]*50+'px;"></div>';
+			document.querySelector("#snake").innerHTML += '<div class="a '+ins+'" style="top:'+planke[i][0]*bsize+'px; left:'+planke[i][1]*bsize+'px;"></div>';
 		}
 		/* Wyświetlanie głowy wonża */
-		document.querySelector("#snake").innerHTML += '<div class="a c" style="top:'+planke[planke.length-1][0]*50+'px; left:'+planke[planke.length-1][1]*50+'px;"></div>';
+		document.querySelector("#snake").innerHTML += '<div class="a c" style="top:'+planke[planke.length-1][0]*bsize+'px; left:'+planke[planke.length-1][1]*bsize+'px;"></div>';
 		/* Wyświetlanie owoceła */
-		document.querySelector("#snake").innerHTML += '<div id="frucht" style="top:'+apple[0]*50+'px; left:'+apple[1]*50+'px;"></div>';
+		document.querySelector("#snake").innerHTML += '<div id="frucht" style="top:'+apple[0]*bsize+'px; left:'+apple[1]*bsize+'px;"></div>';
 	}
 }
 function start(x=size[0],y=size[1]){
