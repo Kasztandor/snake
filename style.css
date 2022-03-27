@@ -80,3 +80,20 @@ img{
 	width: var(--box-size);
 	height: var(--box-size);
 }
+
+section:last-child{
+	font-size: 16px;
+	position: absolute;
+	top: 100vh;
+	left: 100vw;
+	width: 100vw;
+	text-align: right;
+	transform: translate(calc(-100% - 10px), calc(-100% - 10px));
+}
+section:last-child a{
+	text-decoration: none;
+	color: black;
+}
+section:last-child a:hover{
+	text-decoration: underline;
+}
