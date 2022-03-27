@@ -15,8 +15,12 @@ body{
 }
 #snake{
 	position: relative;
-	width: calc(var(--wid) * var(--box-size));
-	height: calc(var(--hei) * var(--box-size));
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: calc((var(--wid) * var(--box-size)) - 10px);
+	height: calc((var(--hei) * var(--box-size)) - 10px);
 	background-color: green;
 	background-image: var(--bgground);
 	background-size: var(--box-size) var(--box-size);
