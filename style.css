@@ -87,6 +87,10 @@ img{
 	width: var(--box-size);
 	height: var(--box-size);
 }
+.dimg{
+	width: 50px;
+	height: 50px;
+}
 
 section:last-child{
 	font-size: 16px;

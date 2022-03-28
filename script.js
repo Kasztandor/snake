@@ -21,19 +21,17 @@ var bsize = 50
 function boxSize() {
 	var bs1 = Math.floor(window.innerHeight / (size[0]))
 	var bs2 = Math.floor(window.innerWidth / (size[1]))
-	console.log(window.innerHeight+" "+bs1)
 	bsize = bs1>bs2?bs2:bs1
 	//bsize = bs1
 	document.documentElement.style.setProperty('--box-size', bsize+'px');
 }
 function startPage(){
-	console.log(texturesBar);
-	document.getElementsByTagName("main")[0].innerHTML='<h1>Swobodny wenż</h1>Tekstury:<br><input id="textures" type="range" min="0" max="'+(Object.keys(textures).length-1)+'" value="'+texturesBar+'"><br><span id="texturesDisplay">'+textures[texturesBar]+'</span><br><br><div id="texturesPresentation"><div id="texturesPresentation"><img src="resources/'+textures[texturesBar]+'/skin0.png"><img src="resources/'+textures[texturesBar]+'/skin1.png"><img src="resources/'+textures[texturesBar]+'/skin2.png"> <img src="resources/'+textures[texturesBar]+'/fruit.png"> <img src="resources/'+textures[texturesBar]+'/background.png"></div></div><br>Wysokość planszy:<input id="boardHeight" type="range" min="1" max="8" value="'+sizeBar[0]+'"><span id="boardHeightDisplay">'+size[0]+'</span><br>Szerokość planszy:<input id="boardWidth" type="range" min="1" max="8" value="'+sizeBar[1]+'"><span id="boardWidthDisplay">'+size[1]+'</span><br>Szybkość:<input id="boardSpeed" type="range" min="0" max="4" value="'+speedBar+'"><span id="boardSpeedDisplay">normalna</span><br><br><button onclick=\'start(size[0],size[1])\'>Rozpocznij!</button>';
+	document.getElementsByTagName("main")[0].innerHTML='<h1>Swobodny wenż</h1>Tekstury:<br><input id="textures" type="range" min="0" max="'+(Object.keys(textures).length-1)+'" value="'+texturesBar+'"><br><span id="texturesDisplay">'+textures[texturesBar]+'</span><br><br><div id="texturesPresentation"><div id="texturesPresentation"><img class="dimg" src="resources/'+textures[texturesBar]+'/skin0.png"><img class="dimg" src="resources/'+textures[texturesBar]+'/skin1.png"><img class="dimg" src="resources/'+textures[texturesBar]+'/skin2.png"> <img class="dimg" src="resources/'+textures[texturesBar]+'/fruit.png"> <img class="dimg" src="resources/'+textures[texturesBar]+'/background.png"></div></div><br>Wysokość planszy:<input id="boardHeight" type="range" min="1" max="8" value="'+sizeBar[0]+'"><span id="boardHeightDisplay">'+size[0]+'</span><br>Szerokość planszy:<input id="boardWidth" type="range" min="1" max="8" value="'+sizeBar[1]+'"><span id="boardWidthDisplay">'+size[1]+'</span><br>Szybkość:<input id="boardSpeed" type="range" min="0" max="4" value="'+speedBar+'"><span id="boardSpeedDisplay">normalna</span><br><br><button onclick=\'start(size[0],size[1])\'>Rozpocznij!</button>';
 	document.querySelector("#textures").oninput = function(){
 		texturesBar = this.value;
 		var fldName = textures[texturesBar];
 		document.querySelector("#texturesDisplay").innerHTML = fldName+":";
-		document.querySelector("#texturesPresentation").innerHTML = '<img src="resources/'+fldName+'/skin0.png"><img src="resources/'+fldName+'/skin1.png"><img src="resources/'+fldName+'/skin2.png">&emsp;<img src="resources/'+fldName+'/fruit.png">&emsp;<img src="resources/'+fldName+'/background.png">';
+		document.querySelector("#texturesPresentation").innerHTML = '<img class="dimg" src="resources/'+fldName+'/skin0.png"><img class="dimg" src="resources/'+fldName+'/skin1.png"><img class="dimg" src="resources/'+fldName+'/skin2.png">&emsp;<img class="dimg" src="resources/'+fldName+'/fruit.png">&emsp;<img class="dimg" src="resources/'+fldName+'/background.png">';
 		document.documentElement.style.setProperty('--skin0', 'url("resources/'+fldName+'/skin0.png")');
 		document.documentElement.style.setProperty('--skin1', 'url("resources/'+fldName+'/skin1.png")');
 		document.documentElement.style.setProperty('--skin2', 'url("resources/'+fldName+'/skin2.png")');
