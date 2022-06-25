@@ -92,7 +92,7 @@ img{
 	height: 50px;
 }
 
-section:last-child{
+#github {
 	font-size: 16px;
 	position: absolute;
 	top: 100vh;
@@ -101,10 +101,10 @@ section:last-child{
 	text-align: right;
 	transform: translate(calc(-100% - 10px), calc(-100% - 10px));
 }
-section:last-child a{
+#github a{
 	text-decoration: none;
 	color: black;
 }
-section:last-child a:hover{
+#github a:hover{
 	text-decoration: underline;
 }
