@@ -1,2 +1,1 @@
-# snake
-Simple snake game with javascript
+Moved to [Kasztandor/fun.kasztandor.pl](https://github.com/Kasztandor/fun.kasztandor.pl)
